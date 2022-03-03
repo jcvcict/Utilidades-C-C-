@@ -36,6 +36,7 @@ int Prim(int** matriz, int numerodevertices, int** resultado) {
                 mascerca[i] = k;
             }
         } // Actualizamos los valores de las distancias minimas segun el último k introducido.
+        
     /*Como solo actualizamos los valores cuando son menores, es acumulativo 
      y no tenemos en cuenta solo las aristas actual y primera, sino todas por las que vamos pasando*/
     }
