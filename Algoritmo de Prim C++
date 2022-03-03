@@ -1,0 +1,41 @@
+/*IMPLEMENTACIÓN EN C++ del algoritmo de Prim para grafos*/
+
+int Prim(int** matriz, int numerodevertices, int** resultado) {
+    int* mascerca = new int[numerodevertices];
+    int* mindis = new int[numerodevertices];
+    
+    for (int x = 1; x < numerodevertices; x++) {
+        mascerca[x] = 0;
+        mindis[x] = matriz[0][x];
+    } // Inicializamos el vector mascerca con el primer nodo. Inicializamos el vertor mindis con las distancias que tenga el primer nodo con los demás.
+    
+    int min = 9999999;
+    int k = 0;
+    for (int x = 0; x < numerodevertices-1; x++) {
+        min = 9999999;
+
+        for (int i = 1; i < numerodevertices; i++) {
+            if (mindis[i] < min && mindis[i] >= 0) {
+                min = mindis[i];
+                k = i;
+            }
+        } // Buscamos la distancia minima actual y al ser >= 0 no permitimos que haya repetidos.
+        resultado[x][0] = k; 
+        resultado[x][1] = mascerca[k];
+        mindis[k] = -1;
+
+        for (int i = 1; i < numerodevertices; i++) {
+            if (matriz[k][i] < mindis[i]) {
+                mindis[i] = matriz[k][i];
+                mascerca[i] = k;
+            }
+        } // Actualizamos los valores de las distancias minimas segun el último k introducido.
+    /*Como solo actualizamos los valores cuando son menores, es acumulativo 
+     y no tenemos en cuenta solo las aristas actual y primera, sino todas por las que vamos pasando*/
+    }
+    
+    delete mascerca;
+    delete mindis;
+    
+    return numerodevertices-1;
+}
