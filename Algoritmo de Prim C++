@@ -2,7 +2,7 @@
 /*
   matriz: Es la matriz de adyacencia del grafo.
   numerodevertices: Número de vertices del grafo o número de columnas (o filas de la matriz).
-  resultado: Es una matriz numerodevertices x 2 que la formarán las aristas seleccionadas como solución.  
+  resultado: Es una matriz numerodevertices x 2 formada por las aristas seleccionadas como solución.  
 */
 
 
