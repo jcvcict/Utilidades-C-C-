@@ -1,4 +1,10 @@
 /*IMPLEMENTACIÓN EN C++ del algoritmo de Prim para grafos*/
+/*
+  matriz: Es la matriz de adyacencia del grafo
+  numerodevertices: Número de vertices del grafo o número de columnas (o filas de la matriz).
+  resultado: Es una matriz numerodevertices x 2 que la formarán las aristas seleccionadas como solución.  
+*/
+
 
 int Prim(int** matriz, int numerodevertices, int** resultado) {
     int* mascerca = new int[numerodevertices];
